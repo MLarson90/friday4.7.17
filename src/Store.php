@@ -18,7 +18,7 @@
       }
       function setName($new_name)
       {
-         $this->name = $new_name;
+         $this->name = (string)$new_name;
       }
       function getCity()
       {
@@ -70,7 +70,7 @@
       function update_name($new_name){
         $executed = $GLOBALS['DB']->exec("UPDATE stores SET name = '{$new_name}' WHERE id = {$this->getId()};");
         if($executed){
-          $this->setLast($new_name);
+          $this->setName($new_name);
           return true;
         }else{
           return false;
@@ -80,8 +80,12 @@
       {
         $executed = $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
         if ($executed){
-          return true;
-        }else{
+          return false;
+        }
+        $executed = $GLOBALS['DB']->exec("DELETE FROM stores_brands WHERE store_id = {$this->getId()};");
+        if($executed){
+          return false;
+        } else{
           return false;
          }
       }

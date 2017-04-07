@@ -1,0 +1,22 @@
+{% include 'top.html.twig' %}
+  <h1> {{ brand.getName }} </h1>
+  <h2> {{ brand.getType }} </h2>
+  {% if stores is not empty %}
+  {% for storeer in stores %}
+  <ul>
+    <li><a href="/store{{ storeer.getId }}">{{ storeer.getName}}</a> {{ storeer.getCity }}</p>
+  </ul>
+  {% endfor %}
+  {% else %}
+  <h3> This store does not seem to carry any stores yet :(</h3>
+  {% endif %}
+  <h3> Add Brand </h3>
+  <form action="/newstore" method="post">
+    <select class="form-control" name="store">
+    {% for astore in allstores %}
+      <option value="{{ astore.getId }}">{{ astore.getName }}</option>
+    {% endfor %}
+  </select>
+    <button type="submit" value="{{brand.getId}}" name="id">Add</button>
+</form>
+{% include 'bottom.html.twig'%}

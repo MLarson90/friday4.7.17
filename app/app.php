@@ -43,12 +43,55 @@
     $brands = $store->findBrands();
     return $app['twig']->render("store.html.twig", array( 'store' => $store, 'brands' =>$brands, 'allbrands' => Brand::getAll()));
   });
+  $app->post("/store/{id}", function($id) use ($app){
+    $store = Store::findStorebyId($id);
+    $brands = $store->findBrands();
+    return $app['twig']->render("store.html.twig", array( 'store' => $store, 'brands' =>$brands, 'allbrands' => Brand::getAll()));
+  });
   $app->post("/newbrand", function() use ($app){
     $newBrand = Brand::findBrandbyId($_POST['brand']);
     $store = Store::findStorebyId($_POST['id']);
     $store->addBrand($newBrand);
     $brands = $store->findBrands();
     return $app['twig']->render("store.html.twig", array('store' => $store, 'brands' => $brands, 'allbrands' => Brand::getAll()));
+  });
+  $app->get("/store/{id}/edit", function($id) use ($app){
+    $store = Store::findStorebyId($id);
+    return $app['twig']->render("store_edit.html.twig", array( 'store' => $store));
+  });
+  $app->post("/store/{id}/edit", function($id) use ($app){
+    $store = Store::findStorebyId($id);
+    $store->update_name($_POST['newname']);
+    $brands = $store->findBrands();
+    return $app['twig']->render("store.html.twig", array('store' => $store, 'brands' => $brands, 'allbrands' => Brand::getAll()));
+  });
+  $app->patch("/store/{id}/edit", function($id) use ($app){
+    $store = Store::findStorebyId($id);
+    $store->update_name($_POST['newname']);
+    $brands = $store->findBrands();
+    return $app['twig']->render("store.html.twig", array('store' => $store, 'brands' => $brands, 'allbrands' => Brand::getAll()));
+  });
+  $app->delete("/store/{id}/edit", function($id)use ($app){
+    $store= Store::findStorebyId($id);
+    $store->delete();
+    return $app['twig']->render("index.html.twig");
+  });
+  $app->get('/brand{id}', function($id) use ($app){
+    $brand = Brand::findBrandbyId($id);
+    $stores = $brand->findStores();
+    return $app['twig']->render("brand.html.twig", array( 'brand' => $brand, 'stores' =>$stores, 'allstores' => Store::getAll()));
+  });
+  $app->post("/brand/{id}", function($id) use ($app){
+    $brand = Brand::findBrandbyId($id);
+    $stores = $brand->findStores();
+    return $app['twig']->render("brand.html.twig", array( 'brand' => $brand, 'stores' =>$stores, 'allstores' => Store::getAll()));
+  });
+  $app->post("/newstore", function() use ($app){
+    $newStore = Store::findStorebyId($_POST['store']);
+    $brand = Brand::findBrandbyId($_POST['id']);
+    $brand->addStore($newStore);
+    $brands = $brand->findStores();
+    return $app['twig']->render("brand.html.twig", array('brand' => $brand, 'stores' => $brands, 'allstores' => Store::getAll()));
   });
   return $app;
  ?>
