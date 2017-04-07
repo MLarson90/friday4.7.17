@@ -1,28 +1,30 @@
-# _PHP Project Template_
+# _Kick Back_
 
-#### _Starting template for php projects, March, 2017_
+#### _Inventory tracker for a shoe store, April, 2017_
 
 #### By _**Max Larson**_
 
 ## Description
 
-_Starting files and directory structure for php projects. See the composer.json file for project dependencies._
+_This is a program for a company to see what stores sell what brands of shoes and where brands of shoes are sold._
 
 ## Setup/Installation Requirements
 
 * _Download or clone project files_
 * _Run Composer Install or Composer Update in terminal_
-* _Update Class names and Test names as appropriate_
+* _Open zipped database_
 
 ## Specs (include project specs below)
-* _spec 1_
-* _spec 2_
-* _spec 3_
-* _..._
+* _User can assign a brand to a store_
+* _User can assign a store to a brand_
+* _User can see all brands in a store_
+* _User can view a brand and see all stores that caryy it_
+* _User can view a store and see all brands that it carries_
+
 
 ## Known Bugs
 
-_No known bugs,_
+_If the internet was a spider web with program would be a spider, eating any bug that comes near it._
 
 ## Support and contact details
 
