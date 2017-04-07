@@ -23,20 +23,20 @@ class Sample2Test extends PHPUnit_Framework_TestCase
   }
   function test_deleteAll()
   {
-    $newClass = new Brand ("max","blue");
-    $newClass->save();
+    $newBrand = new Brand ("max","blue");
+    $newBrand->save();
     Brand::deleteAll();
     $result = Brand::getAll();
     $this->assertEquals($result, []);
   }
   function test_getAll()
   {
-    $newClass = new Brand ('max', 'blue');
-    $newClass2 = new Brand ('jack', "black");
-    $newClass->save();
-    $newClass2->save();
+    $newBrand = new Brand ('max', 'blue');
+    $newBrand2 = new Brand ('jack', "black");
+    $newBrand->save();
+    $newBrand2->save();
     $result = Brand::getAll();
-    $this->assertEquals($result, [$newClass, $newClass2] );
+    $this->assertEquals($result, [$newBrand, $newBrand2] );
   }
 }
 

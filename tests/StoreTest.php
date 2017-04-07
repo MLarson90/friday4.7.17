@@ -4,7 +4,7 @@
 * @backupStaticAttributes disabled
 */
 
-$DB = new PDO('mysql:host=localhost:8889;dbname=stores_test', "root", "root");
+$DB = new PDO('mysql:host=localhost:8889;dbname=shoes_test', "root", "root");
 require_once "src/Brand.php";
 require_once "src/Store.php";
 class SampleTest extends PHPUnit_Framework_TestCase
@@ -17,10 +17,10 @@ class SampleTest extends PHPUnit_Framework_TestCase
   }
     function test_Save()
     {
-      $newClass = new Store ("max", "blue");
-      $newClass->save();
+      $newStore = new Store ("max", "blue");
+      $newStore->save();
       $result = Store::getAll();
-      $this->assertEquals($result, [$newClass]);
+      $this->assertEquals($result, [$newStore]);
     }
 
     function test_deleteAll()

@@ -1,15 +1,15 @@
 <?php
-  class Sample2
+  class Store
 {
     private $name;
-    private $color;
+    private $city;
     private $id;
 
 
-    function __construct($name, $color, $id=null)
+    function __construct($name, $city, $id=null)
       {
         $this->name =$name;
-        $this->color =$color;
+        $this->city =$city;
         $this->id = $id;
       }
       function getName()
@@ -20,13 +20,13 @@
       {
          $this->name = $new_name;
       }
-      function getColor()
+      function getCity()
       {
-        return $this->color;
+        return $this->city;
       }
-      function setColor($new_color)
+      function setCity($new_city)
       {
-         $this->color = $new_color;
+         $this->city = $new_city;
       }
       function getId()
       {
@@ -34,7 +34,7 @@
       }
       function save()
       {
-        $executed = $GLOBALS['DB']->exec("INSERT INTO class (name, color) VALUES ('{$this->getName()}', '{$this->getColor()}'); ");
+        $executed = $GLOBALS['DB']->exec("INSERT INTO stores (name, city) VALUES ('{$this->getName()}', '{$this->getCity()}'); ");
           if($executed){
             $this->id = $GLOBALS['DB']->lastInsertId();
             return true;
@@ -44,17 +44,17 @@
       }
     static function getAll()
       {
-        $classes = array();
-        $returned_classes = $GLOBALS['DB']->query('SELECT * FROM class;');
-        foreach($returned_classes as $class){
-          $newClass = new Sample2($class['name'], $class["color"],  $class["id"]);
-          array_push($classes, $newClass);
+        $stores = array();
+        $returned_store = $GLOBALS['DB']->query('SELECT * FROM stores;');
+        foreach($returned_store as $store){
+          $newStore = new Store($store['name'], $store["city"],  $store["id"]);
+          array_push($stores, $newStore);
         }
-          return $classes;
+          return $stores;
       }
       static function deleteAll()
       {
-        $deleteAll = $GLOBALS['DB']->exec("DELETE FROM class;");
+        $deleteAll = $GLOBALS['DB']->exec("DELETE FROM stores;");
         if ($deleteAll)
         {
           return true;
