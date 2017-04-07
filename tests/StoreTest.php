@@ -25,20 +25,38 @@ class SampleTest extends PHPUnit_Framework_TestCase
 
     function test_deleteAll()
     {
-      $newClass = new Store ("max","blue");
-      $newClass->save();
+      $newStore = new Store ("max","blue");
+      $newStore->save();
       Store::deleteAll();
       $result = Store::getAll();
       $this->assertEquals($result, []);
     }
     function test_getAll()
     {
-      $newClass = new Store ('max', 'blue');
-      $newClass2 = new Store ('jack', "black");
-      $newClass->save();
-      $newClass2->save();
+      $newStore = new Store ('max', 'blue');
+      $newStore2 = new Store ('jack', "black");
+      $newStore->save();
+      $newStore2->save();
       $result = Store::getAll();
-      $this->assertEquals($result, [$newClass, $newClass2] );
+      $this->assertEquals($result, [$newStore, $newStore2] );
+    }
+    function test_update_name()
+    {
+      $newStore = new Store ("max","blue");
+      $newStore->save();
+      $newStore->update_name("Steve");
+      $result = $newStore->getName();
+      $this->assertEquals("Steve", $result);
+    }
+    function test_find_by_id()
+    {
+      $newStore = new Store ('max', 'blue');
+      $newStore2 = new Store ('jack', "black");
+      $newStore->save();
+      $newStore2->save();
+      $test= $newStore->getId();
+      $result = Store::findStorebyId($test);
+      $this->assertEquals($newStore, $result);
     }
   }
 
