@@ -16,5 +16,12 @@
   $app->get("/", function() use ($app) {
     return $app['twig']->render('index.html.twig');
   });
+  $app->get("/seestores", function() use ($app) {
+    return $app['twig']->render('seestores.html.twig', array("stores" => Store::getAll()));
+  });
+  $app->get("/seebrands", function() use ($app) {
+    return $app['twig']->render('seebrands.html.twig', array("brands" => Brand::getAll()));
+  });
+
   return $app;
  ?>

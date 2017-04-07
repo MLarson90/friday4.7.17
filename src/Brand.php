@@ -55,13 +55,37 @@
       }
       static function deleteAll()
       {
-        $deleteAll = $GLOBALS['DB']->exec("DELETE FROM brands;");
-        if ($deleteAll)
+        $executed = $GLOBALS['DB']->exec("DELETE FROM brands;");
+        if ($executed)
         {
-          return true;
-        }else {
           return false;
         }
+        $executed = $GLOBALS['DB']->exec("DELETE FROM stores_brands;");
+        if($executed){
+          return false;
+        }
+        else {
+          return true;
+        }
+      }
+      function addStore($store)
+      {
+        $executed = $GLOBALS['DB']->exec("INSERT INTO stores_brands (brand_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
+        if ($executed){
+          return true;
+        }else{
+          return false;
+        }
+      }
+      function findStores()
+      {
+        $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN stores_brands ON (stores.id = stores_brands.store_id)JOIN stores ON(stores_brands.brand_id = brands.id) WHERE brand.id = {$this->getId()};");
+        $stores = array();
+        foreach($returned_stores as $store){
+          $newStore = new Store($store['name'], $store['city'], $store['id']);
+          array_push($stores, $newStore);
+        }
+        return $stores;
       }
     }
 
