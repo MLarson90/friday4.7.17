@@ -79,7 +79,7 @@
       }
       function findStores()
       {
-        $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN stores_brands ON (stores.id = stores_brands.store_id)JOIN stores ON(stores_brands.brand_id = brands.id) WHERE brand.id = {$this->getId()};");
+        $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands JOIN stores_brands ON (brands.id = stores_brands.brand_id)JOIN stores ON(stores_brands.store_id = stores.id) WHERE brand.id = {$this->getId()};");
         $stores = array();
         foreach($returned_stores as $store){
           $newStore = new Store($store['name'], $store['city'], $store['id']);
@@ -87,6 +87,18 @@
         }
         return $stores;
       }
+      static function findBrandbyId($search_id)
+      {
+        $returned_brand = $GLOBALS['DB']->prepare("SELECT * FROM brands WHERE id = :id");
+        $returned_brand->bindParam(':id', $search_id, PDO::PARAM_STR);
+        $returned_brand->execute();
+        foreach($returned_brand as $brand){
+          $id = $brand['id'];
+          if($id == $search_id){
+            $newBrand = new Brand($brand['name'], $brand['type'], $brand['id']);
+            return $newBrand;
+          }
+        }
     }
-
+}
  ?>

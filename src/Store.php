@@ -96,7 +96,7 @@
       }
       function findBrands()
       {
-        $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN stores_brands ON (brands.id = stores_brands.brand_id)JOIN brands ON(stores_brands.store_id = stores.id) WHERE stores.id = {$this->getId()};");
+        $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN stores_brands ON (stores_brands.store_id = stores.id)JOIN brands ON(brands.id = stores_brands.brand_id) WHERE stores.id = {$this->getId()};");
         $brands = array();
         foreach($returned_brands as $brand){
           $newBrand = new Brand($brand['name'], $brand['type'], $brand['id']);
