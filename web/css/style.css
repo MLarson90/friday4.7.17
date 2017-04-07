@@ -118,4 +118,18 @@
 .delete{
   text-align: center;
   background-image: url("../img/magic.jpg");
+  height:900px;
+  color:white;
+  text-shadow: 4px 2px black;
+}
+.delete button{
+  margin-top: 20px;
+  font-size: 20px;
+  color:red;
+}
+.delete h1{
+  padding-top: 40px;
+}
+#gohome{
+  color:blue;
 }
