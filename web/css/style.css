@@ -1,0 +1,77 @@
+#allStore{
+  text-align: center;
+  background-image: url("../img/store_front.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:350px;
+}
+#allBrands{
+  text-align: center;
+  background-image: url("../img/brands.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:350px;
+}
+#addStore{
+  text-align: center;
+  background-image: url("../img/storefinder.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:350px;
+}
+#addBrand{
+  text-align: center;
+  background-image: url("../img/newShoes.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:350px;
+}
+.hometext{
+  text-decoration: none;
+  margin-top: 20%;
+  color: red;
+  font-size: 4em;
+  font-weight: bold;
+  background-color: rgba(255,255,255,.5);
+
+}
+.hometop{
+  background-color: blue;
+  color: white;
+  padding: 50px 20px;
+}
+.kickback{
+  background-color: blue;
+  color:white;
+  height:250px;
+  margin-right: 50px;
+  float:right;
+  border-radius: 10px;
+}
+.addstore{
+  background-image: url("../img/kickback.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+  width: 100%;
+}
+.input{
+  margin-top: 70px;
+  margin-left: 20px;
+}
+.place{
+  background-image: url("../img/toomanychoices.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+  width: 50%;
+  float:right;
+}
+.wall{
+  background-image: url("../img/shoewall.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+  width: 55%;
+  float:right;
+}

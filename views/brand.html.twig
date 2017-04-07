@@ -1,22 +1,27 @@
 {% include 'top.html.twig' %}
+<div class="row">
+  <div class="col-md-4">
   <h1> {{ brand.getName }} </h1>
   <h2> {{ brand.getType }} </h2>
-  {% if stores is not empty %}
-  {% for storeer in stores %}
-  <ul>
-    <li><a href="/store{{ storeer.getId }}">{{ storeer.getName}}</a> {{ storeer.getCity }}</p>
-  </ul>
-  {% endfor %}
-  {% else %}
-  <h3> This store does not seem to carry any stores yet :(</h3>
-  {% endif %}
-  <h3> Add Brand </h3>
-  <form action="/newstore" method="post">
-    <select class="form-control" name="store">
-    {% for astore in allstores %}
-      <option value="{{ astore.getId }}">{{ astore.getName }}</option>
-    {% endfor %}
-  </select>
-    <button type="submit" value="{{brand.getId}}" name="id">Add</button>
-</form>
+      {% if stores is not empty %}
+      {% for storeer in stores %}
+        <ul>
+          <li><a href="/store{{ storeer.getId }}">{{ storeer.getName}}</a> {{ storeer.getCity }}</p>
+          </ul>
+      {% endfor %}
+      {% else %}
+        <h3> This brand does not seem to be carried in any stores in our database yet :(</h3>
+        {% endif %}
+          <h3> Add Store </h3>
+          <form action="/newstore" method="post">
+            <select class="form-control" name="store">
+            {% for astore in allstores %}
+              <option value="{{ astore.getId }}">{{ astore.getName }}</option>
+            {% endfor %}
+            </select>
+            <button type="submit" value="{{brand.getId}}" name="id">Add</button>
+          </form>
+        </div>
+      <div class="col-md-8 wall"></div>
+    </div>
 {% include 'bottom.html.twig'%}

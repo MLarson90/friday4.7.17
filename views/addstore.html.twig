@@ -1,15 +1,26 @@
 {% include 'top.html.twig'%}
-<h3> Add a new store </h3>
-<form action="/addstore" method="post">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input class="form-control" id="name" name="name" type="text" required>
+<div class="row">
+  <div class="addstore">
+    <h3> Add a new store </h3>
+    <div class ="row">
+      <div class="col-md-6 input">
+        <form action="/addstore" method="post">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" name="name" type="text" required>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input class="form-control" id="city" name="city" type="text" required>
+          </div>
+          <button type="submit"> Add</button>
+        </form>
+      </div>
+      <div class="col-md-4 kickback">
+        <h2> Kick Back </h2>
+        <h4> Doing all the hard work so you just have to...well you know </h4>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="city">City</label>
-    <input class="form-control" id="city" name="city" type="text" required>
-  </div>
-  <button type="submit"> Add</button>
-</form>
-
+</div>
 {% include 'bottom.html.twig'%}
