@@ -1,12 +1,16 @@
 {% include 'top.html.twig' %}
-  {% if brands is not empty%}
-  <h2> All Brands </h2>
-    {% for brand in brands %}
-    <ul>
-      <li><a href="/brand{{ brand.getId }}">{{ brand.getName}}</a> {{ brand.getType }}</li>
-    </ul>
-    {% endfor %}
-  {% else %}
-    <h2> There are no brands in your system please add brands and try again </h2>
-  {% endif %}
+  <div class="seebrands">
+      <div class ="brandtext">
+        {% if brands is not empty%}
+          <h1> All Brands </h1>
+        {% for brand in brands %}
+          <ul>
+            <li><a href="/brand{{ brand.getId }}">{{ brand.getName}}</a> {{ brand.getType }}</li>
+          </ul>
+        {% endfor %}
+        {% else %}
+        <h2> There are no brands in your system please add brands and try again </h2>
+      {% endif %}
+    </div>
+  </div>
 {% include 'bottom.html.twig' %}

@@ -59,7 +59,7 @@
   $app->post("/store/{id}/edit", function($id) use ($app){
     $store= Store::findStorebyId($id);
     $store->delete();
-    return $app['twig']->render("index.html.twig");
+    return $app['twig']->render("seestores.html.twig", array("stores" => Store::getAll()));
   });
   $app->get('/brand{id}', function($id) use ($app){
     $brand = Brand::findBrandbyId($id);

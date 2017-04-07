@@ -7,7 +7,7 @@
 }
 #allBrands{
   text-align: center;
-  background-image: url("../img/brands.jpg");
+  background-image: url("../img/seebrands.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height:350px;
@@ -29,10 +29,10 @@
 .hometext{
   text-decoration: none;
   margin-top: 20%;
-  color: red;
+  color: white;
   font-size: 4em;
   font-weight: bold;
-  background-color: rgba(255,255,255,.5);
+  text-shadow: 4px 2px black;
 
 }
 .hometop{
@@ -74,4 +74,48 @@
   height: 700px;
   width: 55%;
   float:right;
+}
+.seestores{
+  background-image: url("../img/background1.jpg");
+  background-size: cover;
+  height:700px;
+  background-repeat: no-repeat;
+}
+.storetext{
+  text-align: left;
+  width: 500px;
+  color: white;
+  margin: 10px;
+}
+.storetext li a{
+  text-decoration: underline;
+  color:white;
+}
+.storetext li{
+  text-decoration: none;
+  font-size: 25px;
+}
+.seebrands{
+  background-image: url("../img/background2.jpg");
+  background-size: cover;
+  height:700px;
+  background-repeat: no-repeat;
+}
+.brandtext{
+  text-align: left;
+  width: 500px;
+  color: white;
+  margin: 10px;
+}
+.brandtext li a{
+  text-decoration: underline;
+  color:white;
+}
+.brandtext li{
+  text-decoration: none;
+  font-size: 25px;
+}
+.delete{
+  text-align: center;
+  background-image: url("../img/magic.jpg");
 }

@@ -1,12 +1,16 @@
 {% include 'top.html.twig' %}
-  {% if stores is not empty%}
-  <h2> All Stores </h2>
-    {% for store in stores %}
-    <ul>
-      <li><a href="/store{{ store.getId }}">{{ store.getName}}</a> {{ store.getCity }}</li>
-    </ul>
-    {% endfor %}
-  {% else %}
-    <h2> There are no stores in your system please add stores and try again </h2>
-  {% endif %}
+  <div class="seestores">
+    <div class="storetext">
+      {% if stores is not empty%}
+        <h1> All Stores </h1>
+        {% for store in stores %}
+          <ul>
+            <li><a href="/store{{ store.getId }}">{{ store.getName}}</a> {{ store.getCity }}</li>
+          </ul>
+        {% endfor %}
+      {% else %}
+        <h2> There are no stores in your system please add stores and try again </h2>
+      {% endif %}
+    </div>
+  </div>
 {% include 'bottom.html.twig' %}
