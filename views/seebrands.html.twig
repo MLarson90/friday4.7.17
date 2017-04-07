@@ -3,7 +3,7 @@
   <h2> All Brands </h2>
     {% for brand in brands %}
     <ul>
-      <li><a href="/brand{{ brand.getId }}">{{ brand.getName}}</a> {{ brand.getCity }}</li>
+      <li><a href="/brand{{ brand.getId }}">{{ brand.getName}}</a> {{ brand.getType }}</li>
     </ul>
     {% endfor %}
   {% else %}

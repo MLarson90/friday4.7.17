@@ -104,6 +104,19 @@
         }
         return $brands;
       }
+      static function findStorebyId($search_id)
+      {
+        $returned_store = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE id = :id");
+        $returned_store->bindParam(':id', $search_id, PDO::PARAM_STR);
+        $returned_store->execute();
+        foreach($returned_store as $store){
+          $id = $store['id'];
+          if($id == $search_id){
+            $newStore = new Store($store['name'], $store['city'], $store['id']);
+            return $newStore;
+          }
+        }
+      }
 }
 
 
